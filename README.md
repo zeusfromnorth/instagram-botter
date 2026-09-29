@@ -1,18 +1,34 @@
+# Instagram Content Planner
 
-<div align="center">
-<h1>Instagram Botter</h1>
-<h3><a href="https://instagram.com">Instagram</a> followers, likes and views botter.</h3>
-<br/>
-<h4>By <a href="https://github.com/natrixdev">natrixdev</a> for github.</h4>
-<br/>
-<h1>Setup</h1>
-</div>
-<h2>1 - You need to install python</2>
-<h4>By <a href="https://python.org/downloads">clicking here</a></h4>
-<br/>
-<h2>2 - Install packages</h2>
-<h4>By running <a href="https://github.com/natrixdev/instagram-botter/edit/main/reqs.txt">reqs.txt</a> file</h4>
-<br/>
-<h2>3 - Run the botter</h2>
-<h4>Run this <a href="https://github.com/natrixdev/instagram-botter/edit/main/main.py"> file</a> to access the botter</h4>
-<br/>
+A small, local-first command-line tool for drafting Instagram captions and keeping a simple posting plan. It does **not** log in to Instagram, scrape Instagram, or generate fake likes, views, or followers. Nothing is posted for you.
+
+## Requirements
+
+- Python 3.10 or newer
+- No third-party packages
+
+## Get started
+
+```bash
+python main.py new
+```
+
+Enter a title, write the caption (finish with a line containing only `.`), add optional hashtags, and optionally note a planned date or time. The draft is saved locally in `~/.instagram-content-planner/drafts.json`.
+
+```bash
+python main.py list              # list your drafts
+python main.py show 1a2b3c4d     # view a draft by ID
+python main.py delete 1a2b3c4d   # delete a draft by ID
+```
+
+The planner checks the 2,200-character caption limit and the 30-hashtag maximum. Hashtags can be entered with or without `#` and separated by spaces or commas.
+
+## Choose a different data location
+
+Set `IG_PLANNER_DATA` to a JSON file path before running the app. For example:
+
+```bash
+IG_PLANNER_DATA=./my-drafts.json python main.py list
+```
+
+Drafts may contain unpublished ideas, so keep the local JSON file private and back it up if needed. The tool works entirely on your computer and does not ask for your Instagram password.
